@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSahay AI - Government Schemes Assistant</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <div class="accessibility-controls">
+        <button class="font-btn" id="increaseFont">A+</button>
+        <button class="font-btn" id="decreaseFont">A-</button>
+    </div>
+
+    <div class="glass-container">
+        <!-- Header Section -->
+        <header class="animate-slide-down">
+            <div class="logo-container">
+                <i class="fas fa-hand-holding-heart logo-icon"></i>
+                <h1>JanSahay AI</h1>
+            </div>
+            <p class="tagline">Your Government Schemes Assistant in Local Languages</p>
+            
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <i class="fas fa-language"></i>
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="ml">മലയാളം</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Chat Section -->
+            <div class="chat-section animate-fade-in">
+                <div class="chat-header">
+                    <h2><i class="fas fa-comments"></i> AI Assistant</h2>
+                    <div class="voice-control">
+                        <button id="voiceInputBtn" class="voice-btn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message bot-message">
+                        <i class="fas fa-robot"></i>
+                        <div class="message-content">
+                            Namaste! I'm JanSahay AI. How can I help you with government schemes today?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <textarea 
+                        id="userInput" 
+                        placeholder="Type your question here..."
+                        rows="1"
+                    ></textarea>
+                    <button id="sendMessage" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Eligibility Checker Section -->
+            <div class="eligibility-section animate-fade-in">
+                <h2><i class="fas fa-check-circle"></i> Check Your Eligibility</h2>
+                
+                <form id="eligibilityForm" class="eligibility-form">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="age" placeholder="Enter your age">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Annual Income (₹)</label>
+                        <input type="number" id="income" placeholder="Enter annual income">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Occupation</label>
+                        <select id="occupation">
+                            <option value="">Select occupation</option>
+                            <option value="farmer">Farmer</option>
+                            <option value="business">Business</option>
+                            <option value="student">Student</option>
+                            <option value="employed">Employed</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>State</label>
+                        <select id="state">
+                            <option value="">Select state</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="tamilnadu">Tamil Nadu</option>
+                            <option value="telangana">Telangana</option>
+                            <option value="kerala">Kerala</option>
+                            <option value="uttarpradesh">Uttar Pradesh</option>
+                        </select>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="hasGirlChild"> Have a girl child below 10 years
+                        </label>
+                        <label>
+                            <input type="checkbox" id="hasHouse"> Already own a house
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search"></i> Check Eligibility
+                    </button>
+                </form>
+                
+                <div id="eligibilityResults" class="eligibility-results hidden">
+                    <h3>Eligible Schemes</h3>
+                    <div id="schemesList"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel (Collapsible) -->
+        <div class="admin-panel animate-slide-up">
+            <div class="admin-header" onclick="toggleAdminPanel()">
+                <h3><i class="fas fa-cog"></i> Admin Panel</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div id="adminContent" class="admin-content hidden">
+                <form id="addSchemeForm">
+                    <h4>Add New Scheme</h4>
+                    
+                    <div class="form-group">
+                        <label>Scheme Name</label>
+                        <input type="text" id="schemeName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="schemeDescription" rows="2" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Eligibility Criteria</label>
+                        <textarea id="schemeEligibility" rows="2" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Benefits</label>
+                        <textarea id="schemeBenefits" rows="2" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" id="schemeCategory" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Application Link</label>
+                        <input type="url" id="schemeLink">
+                    </div>
+                    
+                    <button type="submit" class="btn-secondary">
+                        <i class="fas fa-plus"></i> Add Scheme
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/chat.js"></script>
+    <script src="scripts/admin.js"></script>
+</body>
+</html>

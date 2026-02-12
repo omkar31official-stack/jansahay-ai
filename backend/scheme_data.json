@@ -1,0 +1,42 @@
+[
+  {
+    "name": "PM Kisan Samman Nidhi",
+    "description": "Financial benefit of ₹6000 per year to farmers",
+    "eligibility_criteria": "Must be a farmer with cultivable land. Income limit: ₹2 lakh per annum",
+    "benefits": "₹2000 every 4 months directly to bank account",
+    "category": "Agriculture",
+    "application_link": "https://pmkisan.gov.in"
+  },
+  {
+    "name": "Ayushman Bharat",
+    "description": "Health insurance cover of ₹5 lakh per family per year",
+    "eligibility_criteria": "SECC 2011 database families. Income limit: ₹1.2 lakh in rural, ₹1.8 lakh in urban",
+    "benefits": "Cashless treatment in empaneled hospitals",
+    "category": "Health",
+    "application_link": "https://pmjay.gov.in"
+  },
+  {
+    "name": "Sukanya Samriddhi Yojana",
+    "description": "Savings scheme for girl child education and marriage",
+    "eligibility_criteria": "Girl child below 10 years, resident Indian",
+    "benefits": "8.4% interest rate, tax benefits under 80C",
+    "category": "Education",
+    "application_link": "https://www.indiapost.gov.in"
+  },
+  {
+    "name": "Pradhan Mantri Awas Yojana",
+    "description": "Housing for all urban poor",
+    "eligibility_criteria": "EWS/LIG families with annual income up to ₹6 lakh",
+    "benefits": "Subsidy up to ₹2.67 lakh on home loans",
+    "category": "Housing",
+    "application_link": "https://pmay-urban.gov.in"
+  },
+  {
+    "name": "PM Mudra Yojana",
+    "description": "Loans up to ₹10 lakh for small businesses",
+    "eligibility_criteria": "Small business owners, entrepreneurs",
+    "benefits": "Collateral-free loans under Shishu, Kishor, Tarun categories",
+    "category": "Business",
+    "application_link": "https://www.mudra.org.in"
+  }
+]
